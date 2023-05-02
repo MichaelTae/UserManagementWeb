@@ -14,9 +14,9 @@ function App() {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-   const { users, isLoading, isError } = useUsers()
+  //  const { users, isLoading, isError } = useUsers()
 
-   console.log(users)
+  //  console.log(users)
   return (
     <div className="App">
       <Router>
