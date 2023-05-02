@@ -19,15 +19,19 @@ const useStyles = createStyles((theme) => ({
     },
   }));
   
-export const Navigation = ({ menuItems }) => {
+export const Navigation = ({ menuItems,isOpen  }) => {
+  
     const { classes } = useStyles();
     return(
-  <motion.ul variants={variants} className={classes.navigationList} >
+      <>
+
+   <motion.ul variants={variants} className={classes.navigationList} >
     {menuItems.map((item) => (
-      <MenuItem key={item.id} i={item.id} icon={item.icon} text={item.text} link={item.link} />
+       <MenuItem key={item.id} i={item.id} icon={item.icon} text={item.text} link={item.link} isOpen={isOpen} />
     ))}
-  </motion.ul>
-    )
+  </motion.ul> 
+  </>
+  )
 };
 
 
