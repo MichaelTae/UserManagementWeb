@@ -15,7 +15,6 @@ const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: '10px',
-    cursor: 'pointer',
     display: 'flex',
     flexDirection: 'row',
     position: 'relative',
@@ -39,7 +38,7 @@ const useStyles = createStyles((theme) => ({
       transition: 'opacity 500ms',
       width: '100%',
       background:
-        ' radial-gradient( 200px circle at var(--mouse-x) var(--mouse-y),  rgba(255, 255, 255, 0.2), transparent 40%)',
+        ' radial-gradient( 600px circle at var(--mouse-x) var(--mouse-y),  rgba(255, 255, 255, 0.1), transparent 20%)',
       zIndex: 3,
     },
     '&:after': {
@@ -67,6 +66,7 @@ const useStyles = createStyles((theme) => ({
     padding: '10px',
     position: 'absolute',
     zIndex: 2,
+    
   },
 }));
 

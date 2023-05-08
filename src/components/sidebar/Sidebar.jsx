@@ -25,7 +25,7 @@ const menuItems = [
       top: 0,
       left: 0,
       width: '250px',
-     height: '100vh',
+      height: '100vh',
       backgroundColor: theme.colorScheme === 'dark' ? '#272640': theme.colors.gray[1],
       padding: '1rem',
       zIndex: 100,
@@ -33,11 +33,8 @@ const menuItems = [
     }
   }));
  
-const Sidebar = () => {
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-  const [isOpen, setIsOpen] = useState(true);
+const Sidebar = ({isOpen, onToggle}) => {
+ 
   const { classes } = useStyles();
   return (
     <motion.div
@@ -48,7 +45,7 @@ const Sidebar = () => {
       transition={{ duration: 0.5 }}
       className={classes.sideBarMain}
     >
-      <Button ml={100} onClick={toggleSidebar}>Toggle Sidebar</Button>
+      <Button ml={100} onClick={() =>onToggle()}>Toggle Sidebar</Button>
       <Box>
         <Text>Logo</Text>
         <Box sx={{background:'red', borderRadius:10, height:'10rem', display:'flex', justifyContent:'center'}} mt={30}>
