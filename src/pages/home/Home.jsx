@@ -6,19 +6,31 @@ import {
   IconUsersPlus,
   IconCurrencyDollar,
 } from '@tabler/icons-react';
-import Demo from './test';
-const Home = () => {
+import Piechart from '../../components/piechart/Piechart';
+import useUsers from '../../helpers/hooks/use-users'
+import useAges from '../../helpers/hooks/use-Metrics'
+
+const Home = ({isOpen}) => {
+
+  const {users}= useUsers()
+  const{userAges}= useAges()
+  console.log(userAges)
   return (
     <Container
       my={'lg'}
       mx={10}
       bg={'#25272b'}
-      maw={1920}
+      maw={'110rem'}
+      
       sx={{
-        boxShadow: '10px 10px 18px -6px rgba(0,191,166,.7)',
+        boxShadow: '15px 20px 30px -20px rgba(0,191,166,.7)',
         border: '1px solid rgba(0,191,166,0.3)',
         height: '55rem',
-        position: 'relative',
+       position:'relative',
+        left:isOpen ? '0px' : '-100px',
+        transition: 'all 0.5s ease-in-out',
+        
+       
       }}
     >
       <Grid m={10}>
@@ -127,22 +139,22 @@ const Home = () => {
           </Skeleton>
         </Grid.Col>
         <Grid.Col span={6}>
+          <Skeleton height={250} animate={true} visible={!users}>
+              <Piechart data={userAges}/>
+          </Skeleton>
+        </Grid.Col>
+        <Grid.Col span={6}>
           <Skeleton height={250} animate={true} visible={false}>
-                    
-          </Skeleton>
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <Skeleton height={250} animate={true}>
 
           </Skeleton>
         </Grid.Col>
         <Grid.Col span={6}>
-          <Skeleton height={250} animate={true}>
+          <Skeleton height={250} animate={true} visible={false}>
 
           </Skeleton>
         </Grid.Col>
         <Grid.Col span={6}>
-          <Skeleton height={250} animate={true}>
+          <Skeleton height={250} animate={true} visible={false}>
 
           </Skeleton>
         </Grid.Col>

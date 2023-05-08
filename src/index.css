@@ -13,3 +13,9 @@ html {
   
   
 }
+.content{
+  flex: 1;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+
