@@ -37,7 +37,7 @@ const WorldMap = ({userData}) => {
         ]}
         onChange={(value) => setCountrySelect(value)}
       />
-        <svg baseProfile="tiny" fill="#262654" stroke="black" strokeLinecap="round" viewBox={` ${countrySelect === 'Europe' ? '80 100 1000 700' : countrySelect === 'North America' ? '10 -10 1000 600' : '180 365 1000 600' } `} strokeLinejoin="round" preserveAspectRatio="xMidYMid meet" strokeWidth=".2" version="1.2"  xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <svg baseProfile="tiny" fill="#262654" stroke="black" strokeLinecap="round" viewBox={` ${countrySelect === 'Europe' ? '80 100 1000 700' : countrySelect === 'North America' ? '10 -30 1000 600' : '180 365 1000 600' } `} strokeLinejoin="round" preserveAspectRatio="xMidYMid meet" strokeWidth=".2" version="1.2"  xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
        {countrySelect === 'Europe' && <EuropeMap   hasUsers={hasUsers}  />}
        {countrySelect === 'North America' && <NorthAmericaMap hasUsers={hasUsers} />}
        {countrySelect === 'South America' && <SouthAmericaMap hasUsers={hasUsers} />}
