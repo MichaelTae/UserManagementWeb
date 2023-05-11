@@ -9,7 +9,7 @@ html {
 }
 .app {
   display: flex;
-  
+  overflow: hidden;
   
   
 }

@@ -1,4 +1,4 @@
-import { Container, Skeleton, Grid, Box, Text, Divider } from '@mantine/core';
+import { Container, Skeleton, Grid, Box, Text, Loader } from '@mantine/core';
 import Card from '../../components/card/Card';
 import {
   IconUsers,
@@ -8,13 +8,16 @@ import {
 } from '@tabler/icons-react';
 import Piechart from '../../components/piechart/Piechart';
 import useUsers from '../../helpers/hooks/use-users'
-import useAges from '../../helpers/hooks/use-Metrics'
+import useMetries from '../../helpers/hooks/use-Metrics'
+import WorldMap from '../../components/worldMap/WorldMap';
+import '/src/pages/home/Home.css'
 
 const Home = ({isOpen}) => {
 
-  const {users}= useUsers()
-  const{userAges}= useAges()
-  console.log(userAges)
+  const {users}=useUsers();
+  const{userAges,userCountries,totalRevenue,userGenders,metrics}=useMetries();
+  
+  
   return (
     <Container
       my={'lg'}
@@ -23,17 +26,41 @@ const Home = ({isOpen}) => {
       maw={'110rem'}
       
       sx={{
-        boxShadow: '15px 20px 30px -20px rgba(0,191,166,.7)',
-        border: '1px solid rgba(0,191,166,0.3)',
-        height: '55rem',
-       position:'relative',
-        left:isOpen ? '0px' : '-100px',
+        
+        top: '10px',
+        height: '95%',
+        position:'relative',
+        left:isOpen ? '0px' : '-150px',
         transition: 'all 0.5s ease-in-out',
+        width:isOpen ? '100%' : '110%',
+        
         
        
       }}
     >
-      <Grid m={10}>
+      <div class="background">
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   
+</div>
+      <Grid m={10}  sx={{
+        boxShadow: '15px 20px 60px -20px rgba(0,191,166,.7)',
+        borderRadius: '30px',
+        height: '95%',
+       position:'relative',
+       border: '1px solid rgba(0,191,166,0.3)',
+        transition: 'all 0.5s ease-in-out',
+      }}>
         <Grid.Col span={3}>
           <Skeleton height={100} animate={true} visible={false}>
             <Card>
@@ -42,7 +69,7 @@ const Home = ({isOpen}) => {
                   sx={{
                     display: 'flex',
                     paddingLeft: 10,
-                    paddingTop: 10,
+                    
                     
                   }}
                 >
@@ -53,7 +80,7 @@ const Home = ({isOpen}) => {
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex', paddingLeft: 10 }}>
-                  <Text size={24}>1000 </Text>
+                  <Text size={24}>{metrics?.users || "Loading..."} </Text>
                   
                 </Box>
                 
@@ -70,7 +97,7 @@ const Home = ({isOpen}) => {
                   sx={{
                     display: 'flex',
                     paddingLeft: 10,
-                    paddingTop: 10,
+                    
                   
                   }}
                 >
@@ -80,7 +107,7 @@ const Home = ({isOpen}) => {
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex', paddingLeft: 10 }}>
-                  <Text size={24}>1000 </Text>
+                  <Text size={24}>{metrics?.bookings || "Loading..."} </Text>
                 </Box>
               </Box>
               
@@ -95,17 +122,17 @@ const Home = ({isOpen}) => {
                   sx={{
                     display: 'flex',
                     paddingLeft: 10,
-                    paddingTop: 10,
+                    
                     
                   }}
                 >
-                  <Text size={22}>New Users This Week</Text>
+                  <Text size={22}>Tickets available for booking</Text>
                   <Text sx={{marginLeft:'auto'}}>
                     <IconUsersPlus size={32} />
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex', paddingLeft: 10 }}>
-                  <Text size={24}>1000 </Text>
+                  <Text size={24}>{metrics?.tickets || "Loading..."} </Text>
                 </Box>
               </Box>
               
@@ -120,7 +147,7 @@ const Home = ({isOpen}) => {
                   sx={{
                     display: 'flex',
                     paddingLeft: 10,
-                    paddingTop: 10,
+                    
                     
                   }}
                 >
@@ -130,7 +157,7 @@ const Home = ({isOpen}) => {
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex', paddingLeft: 10 }}>
-                  <Text size={24}>1000 </Text>
+                  <Text size={24}>{totalRevenue?.totalRevenue || "Loading..."} </Text>
                 </Box>
               </Box>
              
@@ -138,24 +165,30 @@ const Home = ({isOpen}) => {
             </Card>
           </Skeleton>
         </Grid.Col>
-        <Grid.Col span={6}>
-          <Skeleton height={250} animate={true} visible={!users}>
-              <Piechart data={userAges}/>
+        <Grid.Col span={5}>
+          <Skeleton height={250} animate={true} visible={!userAges}>
+            {!userAges && <Loader size={'xl'} sx={{zIndex:100, top:'40%', left:'45%'}} color='red' pos={'absolute'} />}
+            {!userAges && <Text size={24} sx={{zIndex:100, top:'65%', left:'42%', position:'absolute'}}>Loading...</Text> }
+            <Piechart title="User Age distribution" data={userAges} dataKey="quantity" nameKey="ageSpan"/>
+          </Skeleton>
+        </Grid.Col>
+        <Grid.Col span={7}>
+          <Skeleton height={525} animate={true} visible={!userCountries}>
+            {!userCountries && <Loader size={100} sx={{zIndex:100, top:'40%', left:'45%'}} color='red' pos={'absolute'} />}
+            {!userCountries && <Text size={24} sx={{zIndex:100, top:'60%', left:'45%', position:'absolute'}}>Loading...</Text> }
+              {userCountries && <WorldMap userData={userCountries} />}
+          </Skeleton>
+        </Grid.Col>
+        <Grid.Col span={5}>
+          <Skeleton height={250} animate={true} visible={!userGenders} sx={{top:'-108%'}}>
+            {!userGenders && <Loader size={'xl'} sx={{zIndex:100, top:'40%', left:'45%'}} color='red' pos={'absolute'} />}
+            {!userGenders && <Text size={24} sx={{zIndex:100, top:'65%', left:'42%', position:'absolute'}}>Loading...</Text> }
+            <Piechart title='User Gender Distribution' data={userGenders} dataKey="quantity" nameKey="gender"/>
           </Skeleton>
         </Grid.Col>
         <Grid.Col span={6}>
           <Skeleton height={250} animate={true} visible={false}>
-
-          </Skeleton>
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <Skeleton height={250} animate={true} visible={false}>
-
-          </Skeleton>
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <Skeleton height={250} animate={true} visible={false}>
-
+            
           </Skeleton>
         </Grid.Col>
       </Grid>

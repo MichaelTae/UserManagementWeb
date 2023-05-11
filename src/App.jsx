@@ -18,7 +18,21 @@ function App() {
       <Router>
       <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
         <main className={`content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        
+        <div class="background">
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   
+</div>
           <Routes>
             <Route path='/' element={<Home isOpen={sidebarOpen} />} />
             <Route path='/users' element={<Users />} />
