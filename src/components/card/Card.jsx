@@ -57,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   cardContent: {
-    backgroundColor: '#262654',
+    backgroundColor: 'black',
     borderRadius: 'inherit',
     display: 'flex',
     flexDirection: 'column',
@@ -66,7 +66,7 @@ const useStyles = createStyles((theme) => ({
     padding: '10px',
     position: 'absolute',
     zIndex: 2,
-    
+    backdropFilter: 'blur(10.9px)',
   },
 }));
 
