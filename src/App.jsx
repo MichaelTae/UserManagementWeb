@@ -1,30 +1,40 @@
-import './App.css'
-import  useUsers  from '././helpers/hooks/use-users'
+
 import Users from './pages/users/Users'
 import Revenue from './pages/revenue/revenue'
-import Home from './pages/home/home'
+import Home from './pages/home/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ErrorPage from './pages/Errorpage'
 import Sidebar from './components/sidebar/Sidebar'
 import { useState } from 'react';
+
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
-  const [isOpen, setIsOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-  //  const { users, isLoading, isError } = useUsers()
-
-  //  console.log(users)
+ 
+ 
   return (
-    <div className="App">
+    <div className="app">
       <Router>
-      <Sidebar isOpen={isOpen} />
-        <main className='content'>
-        <button onClick={toggleSidebar}>Toggle Sidebar</button>
+      <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
+        <main className={`content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+        <div class="background">
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   <span />
+   
+</div>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home isOpen={sidebarOpen} />} />
             <Route path='/users' element={<Users />} />
             <Route path='/revenue' element={<Revenue />} />
             <Route path='*' element={<ErrorPage/>} />
