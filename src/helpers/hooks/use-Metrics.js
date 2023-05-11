@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getUserAges,getUserCountries,getTotalRevenue,getUserGenders,getMetrics } from '../api/routes';
 import { useEffect, useState } from 'react';
 
-const useUsers = () => {
+const useMetrics = () => {
     const [loading, setLoading] = useState(false);
     const {data: userAges, isLoading: loadingUserAges} = useQuery(['age'], getUserAges);
     const {data: userCountries, isLoading: loadingUserCountries} = useQuery(['country'], getUserCountries);
@@ -19,4 +19,4 @@ const useUsers = () => {
     return {userAges,userCountries,totalRevenue,userGenders,metrics,loading};
 };
 
-export default useUsers;
+export default useMetrics;

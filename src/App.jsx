@@ -1,4 +1,3 @@
-
 import Users from './pages/users/Users'
 import Revenue from './pages/revenue/revenue'
 import Home from './pages/home/Home'
@@ -18,7 +17,7 @@ function App() {
       <Router>
       <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
         <main className={`content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <div class="background">
+        <div className="background">
    <span />
    <span />
    <span />
@@ -35,7 +34,7 @@ function App() {
 </div>
           <Routes>
             <Route path='/' element={<Home isOpen={sidebarOpen} />} />
-            <Route path='/users' element={<Users />} />
+            <Route path='/users' element={<Users isOpen={sidebarOpen} />} />
             <Route path='/revenue' element={<Revenue />} />
             <Route path='*' element={<ErrorPage/>} />
           </Routes>

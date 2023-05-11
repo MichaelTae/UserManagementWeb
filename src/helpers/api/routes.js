@@ -32,3 +32,13 @@ export const getMetrics = async () => {
     const res = await apiCall('/api/Metrics/users', 'GET');
     return res.data;
 }
+
+export const CreateNewUser = async (user) => {
+    const res = await apiCall('/api/Users', 'POST', user);
+    return res.data;
+}
+
+export const UpdateUser = async (id,user) => {
+    const res = await apiCall(`/api/Users/${id}`, 'PUT', user);
+    return res.data;
+}

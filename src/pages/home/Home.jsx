@@ -7,15 +7,14 @@ import {
   IconCurrencyDollar,
 } from '@tabler/icons-react';
 import Piechart from '../../components/piechart/Piechart';
-import useUsers from '../../helpers/hooks/use-users'
-import useMetries from '../../helpers/hooks/use-Metrics'
+import useMetrics from '../../helpers/hooks/use-Metrics'
 import WorldMap from '../../components/worldMap/WorldMap';
 import '/src/pages/home/Home.css'
 
 const Home = ({isOpen}) => {
 
-  const {users}=useUsers();
-  const{userAges,userCountries,totalRevenue,userGenders,metrics}=useMetries();
+  
+  const{userAges,userCountries,totalRevenue,userGenders,metrics}=useMetrics();
   
   
   return (
@@ -38,7 +37,7 @@ const Home = ({isOpen}) => {
        
       }}
     >
-      <div class="background">
+      <div className="background">
    <span />
    <span />
    <span />
