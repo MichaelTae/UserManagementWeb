@@ -76,8 +76,9 @@ const CreateUserModal = ({opened, onClose}) => {
                     value={value}
                     onChange={(val) => { setValue(val); setEmail(val); }}
                     label="Email"
-                    placeholder="Start typing to see options"
+                    placeholder="Example@gmail.com"
                     data={data}
+                    required
                     />
             </Stack>
             {error && <div style={{ color: 'red' }}>{error}</div>}
