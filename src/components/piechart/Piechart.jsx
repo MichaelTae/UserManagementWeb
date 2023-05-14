@@ -49,13 +49,21 @@ const Piechart = ({ data, title, dataKey, nameKey }) => {
     const onPieEnter = (_, index) => {
         setActiveIndex(index);
     };
+    
+
+    const dataWithdefault = data?.map((item) => ({
+        gender:item.gender || 'Unknown',
+        quantity:item.quantity,
+        ageSpan:item.ageSpan
+    }));
+
     return(
         <>
         <Text pos={'absolute'} sx={{zIndex:10}} ml={10} size={20} weight={600}>{title}</Text>
         <ResponsiveContainer width='100%' height='100%' className={classes.container}>
             <PieChart className={classes.chart}>
                 <Pie
-                    data={data}
+                    data={dataWithdefault}
                     dataKey={dataKey}
                     nameKey={nameKey}
                     cx='50%'
