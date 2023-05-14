@@ -23,7 +23,8 @@ const useStyles = createStyles((theme) => ({
     
     root: {
         fontWeight: 700,
-    
+      borderRadius: '16px',
+      margin: '1rem',
         '&& tbody tr':{
             
             backdropFilter: 'blur(10.9px)',
@@ -128,7 +129,7 @@ const Users = ({isOpen}) => {
         borderRadius: '30px',
         border: '1px solid rgba(0,191,166,0.3)',
         top: '10px',
-        height: '90%',
+        height:'90%',
         position: 'relative',
         backdropFilter: 'blur(10.9px)',
         left:isOpen ? '0px' : '-150px',
@@ -185,7 +186,7 @@ const Users = ({isOpen}) => {
           recordsPerPage={PAGE_SIZE}
           page={page}
           fetching={loading}
-          height={590}
+          height={570}
           loaderVariant='dots'
           highlightOnHover
           fontSize={14}

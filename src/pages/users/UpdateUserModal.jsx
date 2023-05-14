@@ -16,7 +16,7 @@ const UpdateUserModal = ({opened, onClose,userId}) => {
     const [age, setAge] = useState(0);
     
     const [error, setError] = useState('');
-    console.log(userId)
+    
     const onSubmit = async () => {
         
         if (!firstName || !surname || !address|| !zipcode || !state|| !country || !gender|| !age) {
