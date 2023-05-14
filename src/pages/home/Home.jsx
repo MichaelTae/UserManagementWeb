@@ -31,7 +31,7 @@ const Home = ({isOpen}) => {
         position:'relative',
         left:isOpen ? '0px' : '-150px',
         transition: 'all 0.5s ease-in-out',
-        width:isOpen ? '100%' : '110%',
+        width:isOpen ? '99%' : '110%',
         
         
        
@@ -52,7 +52,7 @@ const Home = ({isOpen}) => {
    <span />
    
 </div>
-      <Grid m={10}  sx={{
+      <Grid   sx={{
         boxShadow: '15px 20px 60px -20px rgba(0,191,166,.7)',
         borderRadius: '30px',
         height: '95%',
@@ -73,7 +73,7 @@ const Home = ({isOpen}) => {
                   }}
                 >
                     
-                  <Text  size={22}>Registered users</Text>
+                  <Text  size={18}>Registered users</Text>
                   <Text sx={{marginLeft:'auto'}}>
                     <IconUsers size={32} />
                   </Text>
@@ -100,7 +100,7 @@ const Home = ({isOpen}) => {
                   
                   }}
                 >
-                  <Text size={22}>Tickets sold</Text>
+                  <Text size={18}>Tickets sold</Text>
                   <Text sx={{marginLeft:'auto'}}>
                     <IconTicket size={32} />
                   </Text>
@@ -125,7 +125,7 @@ const Home = ({isOpen}) => {
                     
                   }}
                 >
-                  <Text size={22}>Tickets available for booking</Text>
+                  <Text size={18}>Tickets available for booking</Text>
                   <Text sx={{marginLeft:'auto'}}>
                     <IconUsersPlus size={32} />
                   </Text>
@@ -150,7 +150,7 @@ const Home = ({isOpen}) => {
                     
                   }}
                 >
-                  <Text size={22}>Revenue Total</Text>
+                  <Text size={18}>Revenue Total</Text>
                   <Text sx={{marginLeft:'auto'}}>
                     <IconCurrencyDollar size={32} />
                   </Text>

@@ -1,5 +1,5 @@
 import Users from './pages/users/Users'
-import Revenue from './pages/revenue/revenue'
+import Revenue from './pages/revenue/Revenue'
 import Home from './pages/home/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ErrorPage from './pages/Errorpage'
@@ -35,7 +35,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home isOpen={sidebarOpen} />} />
             <Route path='/users' element={<Users isOpen={sidebarOpen} />} />
-            <Route path='/revenue' element={<Revenue />} />
+            <Route path='/revenue' element={<Revenue isOpen={sidebarOpen}/>} />
             <Route path='*' element={<ErrorPage/>} />
           </Routes>
         </main>

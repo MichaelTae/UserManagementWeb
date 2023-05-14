@@ -10,10 +10,10 @@ const WorldMap = ({userData}) => {
 
     const hasUsers = (countryName)=>{
         if(userData.some((user)=>user.country===countryName)){
-            return 'green'
+            return 'limegreen'
         }
 
-        return 'white'
+        return 'gray'
     }
 
     
@@ -25,7 +25,8 @@ const WorldMap = ({userData}) => {
             
             <SegmentedControl
             radius="lg"
-            color='teal'
+            color='cyan'
+            sx={{color:'rgba(0,191,166,0.8)', background:'rgba(0,191,166,0.05)', border:'1px solid rgba(0,191,166,0.3)', boxShadow:'3px 4px 8px 0px rgba(0,191,166,0.1)'}}
             opacity={0.8}
             transitionDuration={500}
         transitionTimingFunction="linear"

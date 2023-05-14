@@ -12,7 +12,7 @@ import {
 } from '@mantine/core';
 import { DataTable } from 'mantine-datatable';
 import useUsers from '../../helpers/hooks/use-users';
-import { useState, useEffect,useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { IconSearch } from '@tabler/icons-react';
 import CreateUserModal from './CreateUserModal';
 import { useDisclosure } from '@mantine/hooks';
