@@ -78,6 +78,7 @@ const Users = ({isOpen}) => {
   const { users, loading } = useUsers();
   const [opened, { open, close }] = useDisclosure(false);
   const [opened2, { open: open2, close: close2 }] = useDisclosure(false);
+  
 
   const PAGE_SIZE = 15;
   const [query, setQuery] = useState('');
@@ -87,7 +88,9 @@ const Users = ({isOpen}) => {
   
   const [filteredRecords, setFilteredRecords] = useState([]);
   const [userId, setUserId] = useState();
-
+  useEffect(() => {
+    setRecords(users)
+  }, [users]);
   useEffect(() => {
     setPage(1);
     if (query !== '') {
@@ -98,7 +101,7 @@ const Users = ({isOpen}) => {
       setRecords(users);
     }
     
-
+    console.log(records)
     setFilteredRecords(
       users?.filter(({ userId, email, country, firstName, username }) => {
         if (
