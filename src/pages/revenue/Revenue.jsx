@@ -22,6 +22,9 @@ const useStyles = createStyles((theme) => ({
   root: {
     fontWeight: 700,
     width: '100%',
+    borderRadius: '16px',
+    
+    
     '&& tbody tr': {
       backdropFilter: 'blur(10.9px)',
       background: 'rgba(0,191,166,0.05)',
@@ -124,12 +127,12 @@ const Revenue = ({ isOpen }) => {
         borderRadius: '30px',
         border: '1px solid rgba(0,191,166,0.3)',
         top: '10px',
-        height: '90%',
         position: 'relative',
         backdropFilter: 'blur(10.9px)',
         left: isOpen ? '0px' : '-150px',
         transition: 'all 0.5s ease-in-out',
         width: isOpen ? '99%' : '110%',
+        height:'90%'
       }}
     >
       <Title
@@ -172,26 +175,7 @@ const Revenue = ({ isOpen }) => {
           onChange={(e) => setQuery(e.currentTarget.value)}
         />
         
-        {/* <Button
-          type='button'
-          onClick={() => {
-            open();
-          }}
-          variant='outline'
-          sx={{
-            border: '1px solid rgba(0,191,166,0.3)',
-            flex: '0 0 20px',
-            marginLeft: '10px',
-            color: '#b4ece5',
-
-            '&:hover': {
-              color: '#fff',
-            },
-            boxShadow: '3px 4px 8px 0px rgba(0,191,166,0.2)',
-          }}
-        >
-          Add User
-        </Button> */}
+        
         
       </Box>
       <Box display={'flex'} sx={{justifyContent:'space-around', fontSize:22, fontWeight:600, color:'rgba(0,191,166,0.8)'}}>
@@ -246,7 +230,7 @@ function RevenuePerTicket({
       recordsPerPage={PAGE_SIZE}
       page={page}
       fetching={loading}
-      height={590}
+      height={490}
       loaderVariant='dots'
       highlightOnHover
       fontSize={14}
@@ -290,7 +274,7 @@ function RevenuePerUser({
       recordsPerPage={PAGE_SIZE}
       page={page}
       fetching={loading}
-      height={590}
+      height={490}
       loaderVariant='dots'
       highlightOnHover
       fontSize={14}
