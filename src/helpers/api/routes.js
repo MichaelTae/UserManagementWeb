@@ -42,3 +42,13 @@ export const UpdateUser = async (id,user) => {
     const res = await apiCall(`/api/Users/${id}`, 'PUT', user);
     return res.data;
 }
+
+export const getRevenuePerUser = async () => {
+    const res = await apiCall('/api/Metrics/users/Revenue/PerUser', 'GET');
+    return res.data;
+}
+
+export const getRevenuePerTicket = async () => {
+    const res = await apiCall('/api/Metrics/users/Revenue/PerTicket', 'GET');
+    return res.data;
+}
