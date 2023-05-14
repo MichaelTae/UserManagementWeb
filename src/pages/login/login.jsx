@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <Container size={620} my={40} sx={{ zIndex: 200, position: 'relative' }}>
+    <Container size={620} my={40} sx={{ zIndex: 200, position: 'relative', right:100, top:10 }}>
           <div className="background">
    <span />
    <span />
