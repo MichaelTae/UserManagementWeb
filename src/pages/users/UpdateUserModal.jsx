@@ -64,58 +64,58 @@ const UpdateUserModal = ({opened, onClose,userId}) => {
         <Modal opened={opened} onClose={onClose} title="Update User">
             <Stack>
                 <TextInput 
-                    label="firstName" 
-                    placeholder="firstName" 
+                    label="First Name" 
+                    placeholder="First Name" 
                     required
                     value={firstName}
                     onChange={event => setFirstName(event.currentTarget.value)}
                 />
                 <TextInput 
-                    label="surname" 
-                    placeholder="surname" 
+                    label="Surname" 
+                    placeholder="Surname" 
                     required
                     value={surname}
                     onChange={event => setSurName(event.currentTarget.value)}
                 />
                  <TextInput 
-                    label="address" 
-                    placeholder="address" 
+                    label="Address" 
+                    placeholder="Address" 
                     required
                     value={address}
                     onChange={event => setAddress(event.currentTarget.value)}
                 />
                
                  <TextInput 
-                    label="zipcode" 
-                    placeholder="zipcode" 
+                    label="Zipcode" 
+                    placeholder="Zipcode" 
                     required
                     value={zipcode}
                     onChange={event => setZipCode(event.currentTarget.value)}
                 />
                 <TextInput 
-                    label="state" 
-                    placeholder="state" 
+                    label="State" 
+                    placeholder="State" 
                     required
                     value={state}
                     onChange={event => setState(event.currentTarget.value)}
                 />
                  <TextInput 
-                    label="country" 
-                    placeholder="country" 
+                    label="Country" 
+                    placeholder="Country" 
                     required
                     value={country}
                     onChange={event => setCountry(event.currentTarget.value)}
                 />
                 <TextInput 
-                    label="gender" 
-                    placeholder="gender" 
+                    label="Gender" 
+                    placeholder="Gender" 
                     required
                     value={gender}
                     onChange={event => setGender(event.currentTarget.value)}
                 />
                  <TextInput 
-                    label="age" 
-                    placeholder="age" 
+                    label="Age" 
+                    placeholder="Age" 
                     required
                     value={age}
                     onChange={event => setAge(event.currentTarget.value)}
@@ -124,8 +124,8 @@ const UpdateUserModal = ({opened, onClose,userId}) => {
             </Stack>
             {error && <div style={{ color: 'red' }}>{error}</div>}
             <Group position="center" p={10}>
-                <Button variant="outline" color='green' onClick={onSubmit} w={100}>Add User</Button>
-                <Button variant="outline" color='green' w={100} onClick={onClose}>
+                <Button variant="outline" color='green' onClick={onSubmit} w={120}>Update User</Button>
+                <Button variant="outline" color='green' w={120} onClick={onClose}>
                     Cancel
                 </Button>
             </Group>
