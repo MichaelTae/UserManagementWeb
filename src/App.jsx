@@ -12,7 +12,6 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   
 
- 
   return (
     <div className="app">
       <Router>

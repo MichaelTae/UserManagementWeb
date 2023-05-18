@@ -3,7 +3,7 @@ import { Box, createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   cards: {
-    backgroundColor: '#262654',
+    
     height: 'inherit',
     width: 'inherit',
     borderRadius: 15,
@@ -38,7 +38,7 @@ const useStyles = createStyles((theme) => ({
       transition: 'opacity 500ms',
       width: '100%',
       background:
-        ' radial-gradient( 600px circle at var(--mouse-x) var(--mouse-y),  rgba(255, 255, 255, 0.1), transparent 20%)',
+        ' radial-gradient( 600px circle at var(--mouse-x) var(--mouse-y),  rgba(255, 255, 255, 0.1), transparent 30%)',
       zIndex: 3,
     },
     '&:after': {
@@ -58,11 +58,12 @@ const useStyles = createStyles((theme) => ({
   },
   cardContent: {
     backgroundColor: 'black',
+    boxShadow: '3px 4px 8px 0px rgba(0,191,166,0.1)',
     borderRadius: 'inherit',
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
-    inset: '1px',
+    inset: '2px',
     padding: '10px',
     position: 'absolute',
     zIndex: 2,

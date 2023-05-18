@@ -1,0 +1,140 @@
+
+User Management Web Application
+
+## Getting Started
+
+The function of this application is to be able to view different metrics regarding User, Tickets and UserTickets(tickets that are linked to a specific user),
+as well as being able to do CRUD operations on Users and usertickets. 
+
+
+
+
+## Overview of website
+
+If the user is not logged the first page is a login page, and all other routes are protected, 
+The login is simple and not secure only storing in localstorage wether the user username/password are correct,
+if the user provides the correct username and password, they will be redirected to the dashboard page,
+otherwise they will be prompted that the username and password are incorrect.
+
+### Dashboard
+
+The dashboard page is the main page of the application. 
+
+### Users 
+
+The users page is where you can view all the users in the database, as well as create new users and edit existing users.
+
+### Revenue
+
+The revenue page is where you can view the revenue per user as well as revenue per Ticket.
+
+
+
+## Components
+    
+
+### WorldMap
+
+The world map component is comprised by a SVG and is linked to a metrics endpoint that returns quantity of users per country.
+
+If a user exists in a country the color of the country in the SVG will change to green as opposed to the default color of grey.
+
+To add a new country/continent to the map, add a new path to the SVG. 
+After the path has been added use the method HasUsers: 
+
+const hasUsers = (countryName)=>{
+        if(userData.some((user)=>user.country===countryName)){
+            return 'limegreen'
+        }
+
+        return 'gray'
+    }
+
+an example of this is the following:
+<path className="Canada"fill={hasUsers("Canada")} d="M 680.3 187.6 677.9 187.7 672.1 185.8 668.6 182.8 670.5 182.3 676.4 183.9 680.6 186.5 680.3 187.6 Z">
+ </path>
+
+Where fill is the color of the svg path and hasUsers is a method that checks if a user exists in the country, 
+the country name must be the same as the one in the database as well as the one in the SVG.
+
+### UserTable
+
+The user table component is comprised by a table with search and pagination. 
+
+From the user page it's possible to view all the information regarding users except for age, gender and password. 
+Also from this page it's possible to create new users and edit existing users.
+
+### RevenueTable
+
+The revenue table component is comprised by two tables with search and pagination.
+
+From the revenue page it's possible to view the revenue per user as well as revenue per Ticket.
+
+
+
+## API and Endpoints.
+
+### Adding new endpoints
+
+1. Add route to src\helpers\api\routes.js 
+2. Add fetch hook to src\helpers\hooks 
+
+### Fetching data
+
+When fetching data from the API use tanstack/react-query, it's a library that handles caching and refetching of data.
+
+an example of a hook that fetches data from the routes.js is the following:
+
+const useUsers = () => {
+    const [loading, setLoading] = useState(false);
+    const {data: users, isLoading: loadingUsers} = useQuery(['users'], getAllUsers);
+
+    useEffect(() => {
+        if(loadingUsers) setLoading(true);
+        else setLoading(false);
+    }, [loadingUsers]);
+
+    return {users, loading};
+};
+
+export default useUsers;
+
+
+### CSS and Styling
+
+The CSS and styling primarily uses Mantine. 
+
+When possible avoid using global css and instead use mantines {createStyles} hook to create styles for components.
+
+An example of this is the following:
+
+const useStyles = createStyles((theme) => ({
+    iconContainer:{
+        width: '40px',
+        height: '38px',
+        borderRadius: '50%',
+        
+    },
+    textContainer:{
+        borderRadius:'5px',
+        width:'180px',
+        height:'40px',
+        fontSize:'1.2rem',
+    },
+    menuLink: {
+        display: "flex",
+        alignItems: "center",
+        textDecoration: "none",
+        color: "inherit",
+        padding: "0.5rem",
+    },
+}));
+
+and then in the component:
+
+const classes = useStyles();
+
+and finally in the JSX element:
+className={classes.iconContainer}
+
+
