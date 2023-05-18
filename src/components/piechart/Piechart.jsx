@@ -2,6 +2,7 @@ import { ResponsiveContainer, PieChart, Pie, Legend, Cell } from 'recharts';
 import { Text, createStyles, keyframes } from '@mantine/core';
 import React, { useState } from 'react';
 import { renderActiveShape } from './RenderActiveShape';
+import { useMediaQuery } from '@mantine/hooks';
 
 export const shadowAnimation = keyframes({
 	'0%': {
@@ -43,6 +44,7 @@ border: '1px solid rgba(0,191,166,0.3)',
 }));
 
 const Piechart = ({ data, title, dataKey, nameKey }) => {
+    const isSmallerScreen = useMediaQuery('(max-width: 1700px)');
     const {classes} = useStyles();
     const [activeIndex, setActiveIndex] = useState(0);
     const COLORS =  ['#e9d8a6', '#0a9396', '#48bfe3', '#72efdd','#52b788','#eddcd2','#ddbea9'];
@@ -68,8 +70,8 @@ const Piechart = ({ data, title, dataKey, nameKey }) => {
                     nameKey={nameKey}
                     cx='50%'
                     cy='53%'
-                    innerRadius={'55%'}
-                    outerRadius={'75%'}
+                    innerRadius={`${isSmallerScreen ? '45%' : '55%'}`}
+                    outerRadius={`${isSmallerScreen ? '60%' : '75%'}`}
                     blendStroke={true}
                     labelLine={false}
                     activeIndex={activeIndex}

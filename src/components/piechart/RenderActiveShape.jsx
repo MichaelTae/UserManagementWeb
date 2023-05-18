@@ -66,7 +66,7 @@ export const renderActiveShape = (props) => {
 				{percent > 0 ? `(${(percent * 100).toFixed(2)}%)` : null}
 			</text>
 
-			<text x={cx} y={cy} dy={-2} textAnchor="middle" fill={fill}>
+			<text x={cx} y={cy} dy={-2} textAnchor="middle" fill={fill} fontSize={22}>
 				{payload.quantity}
 			</text>
 		</g>
