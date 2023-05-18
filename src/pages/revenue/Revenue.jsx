@@ -28,7 +28,7 @@ const useStyles = createStyles((theme) => ({
     '&& tbody tr': {
       backdropFilter: 'blur(10.9px)',
       background: 'rgba(0,191,166,0.05)',
-
+      boxShadow: '3px 4px 8px 0px rgba(0,191,166,0.05)',
       '&:hover': {
         background: 'rgba(0,191,166,0.1)',
       },

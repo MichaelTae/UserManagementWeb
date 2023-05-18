@@ -25,13 +25,19 @@ const useStyles = createStyles((theme) => ({
         fontWeight: 700,
       borderRadius: '16px',
       margin: '1rem',
+      '& hover':{
+        background:'rgba(0,191,166,0.05)',
+        
+      },
         '&& tbody tr':{
             
             backdropFilter: 'blur(10.9px)',
         background:'rgba(0,191,166,0.05)',
+        boxShadow: '3px 4px 8px 0px rgba(0,191,166,0.05)',
+        
         
           '&:hover': {
-            background: 'rgba(0,191,166,0.1)',
+            background: 'rgba(0,191,166,0.12)',
           },
         },
         '&& thead tr':{
@@ -193,6 +199,7 @@ const Users = ({isOpen}) => {
           loaderVariant='dots'
           highlightOnHover
           fontSize={14}
+          
           
           onPageChange={(newPage) => setPage(newPage)}
           rowExpansion={{
